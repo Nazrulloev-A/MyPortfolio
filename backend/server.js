@@ -4,7 +4,7 @@ const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 // Supabase client
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -14,6 +14,9 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Update axios calls to use:
+await axios.post(`${API_URL}/messages`, values);
 
 // API to get all messages
 app.get('/messages', async (req, res) => {
