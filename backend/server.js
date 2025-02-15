@@ -17,8 +17,13 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(cors());
 app.use(express.json());
 
-// Example of using await in an async function
+// Example of using await in an async function (if needed)
 (async () => {
+  const values = {
+    name: 'John Doe',
+    email: 'john@example.com',
+    message: 'Hello, this is a test message!'
+  };
   await axios.post(`${API_URL}/messages`, values);
 })();
 
