@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Link, IconButton } from '@mui/material';
-import { Instagram, WhatsApp, Telegram } from '@mui/icons-material';
+import { Instagram, WhatsApp, LinkedIn } from '@mui/icons-material';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -28,23 +28,26 @@ const Footer = () => {
           Social Links
           <Box sx={{ display: 'flex', gap: 2 }}>
             <IconButton 
-              aria-label="Telegram"
-              href="https://t.me/yourtelegram" 
+              aria-label="LinkedIn"
+              href="https://www.linkedin.com/in/amrullo-nazrulloev-5b5b9a17a/" 
               target="_blank"
               rel="noopener"
               color="inherit"
             >
-              <Telegram fontSize="large" />
+              <LinkedIn fontSize="large" />
             </IconButton>
-            <IconButton 
-              aria-label="WhatsApp"
-              href="https://wa.me/yourwhatsapp" 
+
+            {/* <IconButton 
+              aria-label="LinkdIn"
+              href="" 
               target="_blank"
               rel="noopener"
               color="inherit"
             >
               <WhatsApp fontSize="large" />
             </IconButton>
+
+
             <IconButton 
               aria-label="Instagram"
               href="https://instagram.com/yourinstagram" 
@@ -53,7 +56,10 @@ const Footer = () => {
               color="inherit"
             >
               <Instagram fontSize="large" />
-            </IconButton>
+            </IconButton> */}
+
+
+
           </Box>
 
           {/* Copyright */}
