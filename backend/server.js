@@ -1,12 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const { createClient } = require('@supabase/supabase-js');
-const axios = require('axios');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
-const API_URL = process.env.VITE_API_URL || 'http://localhost:5000';
 
 // Supabase client
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -14,18 +12,12 @@ const supabaseKey = process.env.SUPABASE_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://your-frontend-domain.com', // Replace with your frontend URL
+  methods: ['GET', 'POST'], // Allow only necessary HTTP methods
+  credentials: true, // Allow cookies and credentials
+}));
 app.use(express.json());
-
-// Example of using await in an async function (if needed)
-(async () => {
-  const values = {
-    name: 'John Doe',
-    email: 'john@example.com',
-    message: 'Hello, this is a test message!'
-  };
-  await axios.post(`${API_URL}/messages`, values);
-})();
 
 // API to get all messages
 app.get('/messages', async (req, res) => {
@@ -36,13 +28,20 @@ app.get('/messages', async (req, res) => {
     if (error) throw error;
     res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error fetching messages:', error.message);
+    res.status(500).json({ error: 'Failed to fetch messages' });
   }
 });
 
 // API to add a new message
 app.post('/messages', async (req, res) => {
   const { name, email, message } = req.body;
+
+  // Validate input
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Name, email, and message are required' });
+  }
+
   try {
     const { data, error } = await supabase
       .from('messages')
@@ -50,7 +49,8 @@ app.post('/messages', async (req, res) => {
     if (error) throw error;
     res.status(201).json(data);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error('Error adding message:', error.message);
+    res.status(500).json({ error: 'Failed to add message' });
   }
 });
 
