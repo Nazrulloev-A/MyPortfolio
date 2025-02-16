@@ -21,30 +21,62 @@ export const CustomThemeProvider = ({ children }) => {
     palette: {
       mode,
       primary: {
-        main: mode === 'light' ? '#2e7d32' : '#66bb6a',
+        main: mode === 'light' ? '#1A73E8' : '#90CAF9', // Google Blue / Light Blue
+        contrastText: mode === 'light' ? '#FFFFFF' : '#000000', // White / Black
       },
       secondary: {
-        main: mode === 'light' ? '#ff5722' : '#ff8a65',
+        main: mode === 'light' ? '#FF7043' : '#FFAB91', // Deep Orange / Light Orange
+        contrastText: mode === 'light' ? '#FFFFFF' : '#000000', // White / Black
       },
       background: {
-        default: mode === 'light' ? '#f5f5f5' : '#121212',
-        paper: mode === 'light' ? '#ffffff' : '#1e1e1e',
+        default: mode === 'light' ? '#F5F5F5' : '#121212', // Light Gray / Dark Gray
+        paper: mode === 'light' ? '#FFFFFF' : '#1E1E1E', // White / Dark Gray
+      },
+      text: {
+        primary: mode === 'light' ? '#212121' : '#E0E0E0', // Dark Gray / Light Gray
+        secondary: mode === 'light' ? '#757575' : '#BDBDBD', // Gray / Light Gray
+      },
+      error: {
+        main: '#D32F2F', // Red
+      },
+      warning: {
+        main: '#FFA000', // Amber
+      },
+      info: {
+        main: '#1976D2', // Blue
+      },
+      success: {
+        main: '#388E3C', // Green
       },
     },
     typography: {
-      fontFamily: 'Roboto, sans-serif',
-      h1: { fontSize: '3.5rem', fontWeight: 700 },
-      h2: { fontSize: '2.5rem', fontWeight: 600 },
+      fontFamily: [
+        'Roboto',
+        'Helvetica',
+        'Arial',
+        'sans-serif',
+      ].join(','),
+      h1: {
+        fontWeight: 500,
+        fontSize: '2.5rem',
+      },
+      h2: {
+        fontWeight: 500,
+        fontSize: '2rem',
+      },
+      h3: {
+        fontWeight: 500,
+        fontSize: '1.75rem',
+      },
+      body1: {
+        fontSize: '1rem',
+      },
     },
-    components: {
-      MuiButton: {
-        styleOverrides: {
-          root: { borderRadius: '8px', padding: '12px 24px' }
-        }
-      }
-    }
-  }), [mode])
-
+    shape: {
+      borderRadius: 8, // Rounded corners for components
+    },
+    spacing: 8, // Consistent spacing unit
+  }), [mode]);
   return (
     <ThemeContext.Provider value={{ toggleTheme, mode }}>
       <MuiThemeProvider theme={theme}>
