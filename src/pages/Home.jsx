@@ -1,7 +1,7 @@
 import { Container, Grid2, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation'; // Import TypeAnimation
+import { TypeAnimation } from 'react-type-animation';
 import PortfoiloImg from '../assets/profile.jpg';
 
 const Home = () => {
@@ -12,6 +12,7 @@ const Home = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        py: 4 // Added safe padding
       }}
     >
       <Grid2 container spacing={4} alignItems="center">
@@ -22,18 +23,16 @@ const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h2" gutterBottom component="div">
               Hello, I'm Amrullo Nazrulloev
             </Typography>
             
-            {/* Typing Animation */}
             <TypeAnimation
               sequence={[
                 'Software Engineer',
-                2000, // Display duration
+                2000,
                 'Business Automation Developer',
                 2000,
-              
               ]}
               speed={50}
               deletionSpeed={50}
@@ -47,29 +46,32 @@ const Home = () => {
               }}
             />
 
-            <Typography variant="body1" paragraph>
-             
-
+            {/* Proper paragraph implementation */}
+            <Typography variant="body1" sx={{ mb: 3 }}>
             </Typography>
             
-            <Button 
-              variant="contained" 
-              color="primary" 
-              component={Link}
-              to="/contact"
-              sx={{ mr: 2 }}
-            >
-              Contact Me
-            </Button>
-            
-            <Button 
-              variant="outlined" 
-              color="primary"
-              component="a"
-              href="/resume.pdf"
-            >
-              Resume
-            </Button>
+            <Box sx={{ display: 'flex', gap: 2, mt: 3 }}>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                component={Link}
+                to="/contact"
+                size="large"
+              >
+                Contact Me
+              </Button>
+              
+              <Button 
+                variant="outlined" 
+                color="primary"
+                component="a"
+                href="/resume.pdf"
+                size="large"
+                download
+              >
+                Resume
+              </Button>
+            </Box>
           </motion.div>
         </Grid2>
 
@@ -89,11 +91,12 @@ const Home = () => {
                 boxShadow: 3,
                 border: '4px solid',
                 borderColor: 'primary.main',
+                position: 'relative'
               }}
             >
               <img 
                 src={PortfoiloImg} 
-                alt="Profile" 
+                alt="Amrullo Nazrulloev" 
                 style={{ 
                   width: '100%', 
                   height: '100%', 
