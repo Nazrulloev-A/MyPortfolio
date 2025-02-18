@@ -6,7 +6,7 @@ import Skills from './pages/Skills';
 import Works from './pages/Works';
 import Resume from './pages/Resume';
 import Contact from './pages/Contacts';
-import Footer from './components/footer'; // Ensure the correct path to Footer
+import Footer from './components/Footer'; // Ensure the correct path to Footer
 
 function App() {
   return (
