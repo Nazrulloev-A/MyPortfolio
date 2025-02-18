@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import { Container, Typography, Grid2, Box, Chip, Button, Stack } from '@mui/material'
-import { Code, DesignServices, Cloud, DataObject } from '@mui/icons-material'
+import { Code, DesignServices, Cloud, DataObject,DeviceHub,ArchitectureSharp,AccountTreeSharp,ComputerSharp } from '@mui/icons-material'
 
 const skills = [
-  { name: 'Frontend', icon: <Code />, items: ['React', 'JavaScript', 'HTML5', 'CSS3'] },
-  { name: 'Design', icon: <DesignServices />, items: ['UI/UX', 'Figma', 'Adobe XD'] },
-  { name: 'Backend', icon: <Cloud />, items: ['Node.js', 'Python', 'REST APIs'] },
-  { name: 'Database', icon: <DataObject />, items: ['MongoDB', 'PostgreSQL', 'Firebase'] },
+  { name: 'Frontend', icon: <Code />, items: ['React', 'JavaScript', 'HTML5', 'CSS3','C#'] },
+  // { name: 'Design', icon: <DesignServices />, items: ['UI/UX', 'Figma', 'Adobe XD'] },
+  { name: 'Backend', icon: <Cloud />, items: ['Node.js', 'Entity Framework Core', 'REST APIs','MVC'] },
+  { name: 'CI/CD & DevOps', icon: <DeviceHub />, items: ['GitHub', 'Docker','Azure DevOps'] },
+  { name: 'Database', icon: <DataObject />, items: ['SQL Server Managment Studio', 'PostgreSQL'] },
+  { name: 'Software Development & Testing:', icon: <ArchitectureSharp />, items: ['Agile, DevOps', 'SDLC,' ,'Unit Testing', '(xUnit, NUnit)', 
+            'Integration Testing', 'RESTful API Development' ] },
+  { name: 'Automation Tools', icon: <AccountTreeSharp />, items: [' Playwright', 'SpecFlow', 'Selenium WebDriver', 'Cypress', 'Cucumber BDD', 'Karate'] },   
+  { name: 'Operating Systems', icon: <ComputerSharp />, items: ['macOS', 'Windows','Linux'] },       
 ]
 
 const Skills = () => {

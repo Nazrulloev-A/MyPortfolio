@@ -29,12 +29,11 @@ const Home = () => {
             {/* Typing Animation */}
             <TypeAnimation
               sequence={[
-                'QA Automation Test Engineer',
+                'Software Engineer',
                 2000, // Display duration
                 'Business Automation Developer',
                 2000,
-                'Software Engineer',
-                2000,
+              
               ]}
               speed={50}
               deletionSpeed={50}
